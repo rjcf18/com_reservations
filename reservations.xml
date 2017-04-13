@@ -43,7 +43,6 @@
         <files folder="admin">
             <!-- Admin Main File Copy Section -->
             <filename>controller.php</filename>
-            <filename>index.html</filename>
             <filename>reservations.php</filename>
 
             <!-- controllers files section -->

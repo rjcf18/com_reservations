@@ -31,3 +31,6 @@ INSERT INTO `#__reservations_spaces` (`space`, `place`, `type`, `area`, `capacit
 ('Room 123', 'Building A', 'Classroom', '20', '35'),
 ('Amphitheater 0', 'Building A', 'Amphitheater', '15', '15'),
 ('Auditorium 1', 'Building B', 'Auditorium', '30', '50');
+
+INSERT INTO `#__reservations_reservations` (`user_id`, `space_id`, `start`, `end`) VALUES
+('96', '1', '2017-05-03 22:30:00', '2017-05-03 23:55:00');

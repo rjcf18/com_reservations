@@ -34,10 +34,7 @@ $listDirn = $this->escape($this->filter_order_Dir);
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
-            <th width="40%">
-				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'user_id', $listDirn, $listOrder); ?>
-            </th>
-			<th width="50%">
+			<th width="90%">
 				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'space', $listDirn, $listOrder); ?>
 			</th>
 			<th width="5%">

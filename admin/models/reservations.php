@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class ReservationsModelSpaces extends JModelList
+class ReservationsModelReservations extends JModelList
 {
 	/**
 	 * Constructor.
@@ -53,8 +53,14 @@ class ReservationsModelSpaces extends JModelList
 		$query = $db->getQuery(true); // clear the query specification
 
 		// Create the base select statement.
-		$query->select('*')
-			->from($db->quoteName('#__reservations_reservations'));
+		$query->select('r.id as id, 
+						s.space as space, 
+						s.place as place, 
+						r.start as start, 
+						r.end as end');
+		$query->from('#__reservations_reservations as r');
+		$query->leftJoin('#__reservations_spaces as s on r.space_id=s.id');
+
 
 		// Filter by search
 		$search = $this->getState('filter.search');

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2.0" method="upgrade">
+    <name>COM_RESERVATIONS</name>
+
+    <creationDate>April 2017</creationDate>
+
+    <author>Ricardo Fusco</author>
+    <authorEmail>ricardo.fusco2@gmail.com</authorEmail>
+
+    <copyright>Copyright Info</copyright>
+    <license>License Info</license>
+
+    <version>0.5.0</version>
+
+    <description>COM_RESERVATIONS_DESCRIPTION</description>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+
+    <administration>
+        <menu link="index.php?option=com_reservations">COM_RESERVATIONS_MENU</menu>
+        <submenu>
+            <menu link="option=com_reservations&amp;view=spaces">COM_RESERVATIONS_SUBMENU_SPACES</menu>
+            <menu link="option=com_reservations&amp;view=reservations">COM_RESERVATIONS_SUBMENU_RESERVATIONS</menu>
+        </submenu>
+
+        <files folder="admin">
+            <!-- Admin Main File Copy Section -->
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>reservations.php</filename>
+
+            <!-- controllers files section -->
+            <folder>controllers</folder>
+
+            <!-- helpers files section -->
+            <folder>helpers</folder>
+
+            <!-- models files section -->
+            <folder>models</folder>
+
+            <!-- views files section -->
+            <folder>views</folder>
+
+            <!-- tables files section -->
+            <folder>tables</folder>
+
+            <!-- SQL files section -->
+            <folder>sql</folder>
+
+        </files>
+        <languages folder="admin/language">
+            <language tag="en-GB">en_GB/en-GB.com_reservations.ini</language>
+            <language tag="en-GB">en_GB/en-GB.com_reservations.sys.ini</language>
+        </languages>
+    </administration>
+
+</extension>

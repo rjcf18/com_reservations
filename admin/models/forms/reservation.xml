@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field
+                name="id"
+                type="text"
+                label="COM_RESERVATIONS_RESERVATIONS_FIELD_ID_LABEL"
+                description="COM_RESERVATIONS_RESERVATIONS_FIELD_ID_DESC"
+                filter="INTEGER"
+                class="readonly"
+                readonly="true"
+        />
+        <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_FLIGHTS_FIELD_TITLE_DESC"
+               type="text"
+        />
+
+    </fieldset>
+
+</form>

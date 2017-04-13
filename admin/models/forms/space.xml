@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field
+                name="id"
+                type="text"
+                label="COM_RESERVATIONS_RESERVATIONS_FIELD_ID_LABEL"
+                description="COM_RESERVATIONS_RESERVATIONS_FIELD_ID_DESC"
+                filter="INTEGER"
+                class="readonly"
+                readonly="true"
+        />
+        <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_FLIGHTS_FIELD_TITLE_DESC"
+               type="text"
+               class="inputbox"
+
+        />
+        <field name="type" label="COM_RESERVATIONS_FIELD_TYPE_LABEL" description="COM_FLIGHTS_FIELD_TYPE_DESC"
+               type="text"
+               class="inputbox"
+
+        />
+        <field name="place" label="COM_RESERVATIONS_FIELD_PLACE_LABEL" description="COM_FLIGHTS_FIELD_PLACE_DESC"
+               type="text"
+               class="inputbox"
+
+        />
+        <field name="area" label="COM_RESERVATIONS_FIELD_AREA_LABEL" description="COM_FLIGHTS_FIELD_AREA_DESC"
+               type="text"
+               filter="INTEGER"
+               class="inputbox"
+        />
+        <field name="capacity" label="COM_RESERVATIONS_FIELD_CAPACITY_LABEL" description="COM_FLIGHTS_FIELD_CAPACITY_DESC"
+               type="text"
+               filter="INTEGER"
+               class="inputbox"
+        />
+        <field name="published" type="list" label="JSTATUS"
+               description="JFIELD_PUBLISHED_DESC" class="custom-select-color-state"
+               filter="intval" size="1" default="1"
+        >
+            <option value="1">
+                JPUBLISHED</option>
+            <option value="0">
+                JUNPUBLISHED</option>
+            <option value="2">
+                JARCHIVED</option>
+            <option value="-2">
+                JTRASHED</option>
+        </field>
+
+    </fieldset>
+
+</form>

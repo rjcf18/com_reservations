@@ -11,77 +11,121 @@
 defined('_JEXEC') or die();
 
 JHtml::_('formbehavior.chosen', 'select');
+JHtml::_('bootstrap.tooltip');
+JHtml::_('behavior.multiselect');
 
 $listOrder = $this->escape($this->filter_order);
 $listDirn = $this->escape($this->filter_order_Dir);
+$columns = 10;
 ?>
 <form action="index.php?option=com_reservations&view=spaces" method="post" id="adminForm" name="adminForm">
-	<div class="row-fluid">
-		<div class="span6">
-			<?php echo JText::_('COM_HELLOWORLD_HELLOWORLDS_FILTER'); ?>
-			<?php
-				echo JLayoutHelper::render(
-					'joomla.searchtools.default',
-					array('view' => $this)
-				);
-			?>
-		</div>
-	</div>
-	<table class="table table-striped table-hover">
-		<thead>
-		<tr>
-			<th width="1%"><?php echo JText::_('COM_HELLOWORLD_NUM'); ?></th>
-			<th width="2%">
-				<?php echo JHtml::_('grid.checkall'); ?>
-			</th>
-			<th width="90%">
-				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'space', $listDirn, $listOrder); ?>
-			</th>
-			<th width="5%">
-				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_PUBLISHED', 'published', $listDirn, $listOrder); ?>
-			</th>
-			<th width="2%">
-				<?php echo JHtml::_('grid.sort', 'COM_HELLOWORLD_ID', 'id', $listDirn, $listOrder); ?>
-			</th>
-		</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td colspan="5">
-					<?php echo $this->pagination->getListFooter(); ?>
-				</td>
-			</tr>
-		</tfoot>
-		<tbody>
-			<?php if (!empty($this->items)) : ?>
-				<?php foreach ($this->items as $i => $row) :
-					$link = JRoute::_('index.php?option=com_reservations&task=space.edit&id=' . $row->id);
-				?>
-					<tr>
-						<td><?php echo $this->pagination->getRowOffset($i); ?></td>
-						<td>
-							<?php echo JHtml::_('grid.id', $i, $row->id); ?>
-						</td>
-						<td>
-							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_HELLOWORLD_EDIT_HELLOWORLD'); ?>">
-								<?php echo $row->space; ?>
-							</a>
-						</td>
-						<td align="center">
-							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'spaces.', true, 'cb'); ?>
-						</td>
-						<td align="center">
-							<?php echo $row->id; ?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			<?php endif; ?>
-		</tbody>
-	</table>
-	<input type="hidden" name="task" value=""/>
-	<input type="hidden" name="boxchecked" value="0"/>
-	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
-	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>"/>
-	<?php echo JHtml::_('form.token'); ?>
+    <div class="row">
+        <div id="j-sidebar-container" class="col-md-2">
+		    <?php echo $this->sidebar; ?>
+        </div>
+        <div class="col-md-10">
+            <div id="j-main-container" class="j-main-container">
+			    <?php
+                    // Search tools bar
+                    echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
+			    ?>
+			    <?php if (empty($this->items)) : ?>
+                    <div class="alert alert-warning alert-no-items">
+					    <?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
+                    </div>
+			    <?php else : ?>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width:1%" class="nowrap text-center hidden-sm-down">
+							    <?php echo JHtml::_('searchtools.sort', '', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+                            </th>
+                            <th style="width:1%" class="text-center">
+							    <?php echo JHtml::_('grid.checkall'); ?>
+                            </th>
+                            <th style="width:1%" class="nowrap text-center">
+							    <?php echo JHtml::_('searchtools.sort', 'JSTATUS', 'published', $listDirn, $listOrder); ?>
+                            </th>
+                            <th style="width:10%" class="nowrap">
+							    <?php echo JHtml::_('searchtools.sort', 'COM_RESERVATIONS_FIELD_SPACE_LABEL', 'space', $listDirn, $listOrder); ?>
+                            </th>
+                            <th style="width:10%" class="nowrap hidden-sm-down text-center">
+							    <?php echo JHtml::_('searchtools.sort',  'COM_RESERVATIONS_FIELD_TYPE_LABEL', 'type', $listDirn, $listOrder); ?>
+                            </th>
+
+                            <th style="width:10%" class="nowrap hidden-sm-down text-center">
+							    <?php echo JHtml::_('searchtools.sort',  'COM_RESERVATIONS_FIELD_PLACE_LABEL', 'place', $listDirn, $listOrder); ?>
+                            </th>
+                            <th style="width:10%" class="nowrap hidden-sm-down text-center">
+							    <?php echo JHtml::_('searchtools.sort', 'COM_RESERVATIONS_FIELD_AREA_LABEL', 'area', $listDirn, $listOrder); ?>
+                            </th>
+                            <th style="width:10%" class="nowrap hidden-sm-down text-center">
+							    <?php echo JHtml::_('searchtools.sort', 'COM_RESERVATIONS_FIELD_CAPACITY_LABEL', 'capacity', $listDirn, $listOrder); ?>
+                            </th>
+                            <th style="width:3%" class="nowrap hidden-sm-down text-center">
+							    <?php echo JHtml::_('searchtools.sort', 'COM_RESERVATIONS_RESERVATIONS_FIELD_ID_LABEL', 'id', $listDirn, $listOrder); ?>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <td colspan="<?php echo $columns; ?>">
+                            </td>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+					    <?php foreach ($this->items as $i => $row) :
+						    $row->max_ordering = 0;
+						    $ordering   = ($listOrder == 'ordering');;
+						    $link = JRoute::_('index.php?option=com_reservations&task=space.edit&id=' . $row->id);
+						    ?>
+                            <tr>
+                                <td class="order nowrap text-center hidden-sm-down">
+
+                                </td>
+                                <td class="text-center">
+								    <?php echo JHtml::_('grid.id', $i, $row->id); ?>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+									    <?php echo JHtml::_('jgrid.published', $row->published, $i, 'spaces.', true, 'cb'); ?>
+                                    </div>
+                                </td>
+                                <td class="small hidden-sm-down">
+                                    <a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_RESERVATIONS_EDIT_SPACES'); ?>">
+		                                <?php echo $row->space; ?>
+                                    </a>
+                                </td>
+                                <td class="small hidden-sm-down text-center">
+	                                <?php echo $row->type; ?>
+                                </td>
+
+                                <td class="small hidden-sm-down text-center">
+	                                <?php echo $row->place; ?>
+                                </td>
+                                <td class="small hidden-sm-down text-center">
+	                                <?php echo $row->area; ?>
+                                </td>
+                                <td class="small hidden-sm-down text-center">
+	                                <?php echo $row->capacity; ?>
+                                </td>
+                                <td class="hidden-sm-down text-center">
+								    <?php echo (int) $row->id; ?>
+                                </td>
+                            </tr>
+					    <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+			    <?php endif; ?>
+
+			    <?php echo $this->pagination->getListFooter(); ?>
+
+                <input type="hidden" name="task" value="">
+                <input type="hidden" name="boxchecked" value="0">
+			    <?php echo JHtml::_('form.token'); ?>
+            </div>
+        </div>
+    </div>
 </form>
 

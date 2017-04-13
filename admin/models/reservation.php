@@ -68,7 +68,7 @@ class ReservationsModelReservation extends JModelAdmin
     *
     * @return  mixed  The data for the form.
     *
-    * @since   1.6
+    * @since   1.0
     */
     protected function loadFormData()
     {

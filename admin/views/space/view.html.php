@@ -71,7 +71,7 @@ class ReservationsViewSpace extends JViewLegacy
 
         $isNew = ($this->item->id == 0);
 
-        $title = JText::_('COM_RESERVATIONS_VIEW_SPACE_TITLE');
+        $title = JText::_('COM_RESERVATIONS_VIEW_SPACE_EDIT');
 
 
         JToolbarHelper::title($title, 'space');

@@ -16,7 +16,7 @@ JHtml::_('behavior.multiselect');
 
 $listOrder = $this->escape($this->filter_order);
 $listDirn = $this->escape($this->filter_order_Dir);
-$columns = 10;
+$columns = 9;
 ?>
 <form action="index.php?option=com_reservations&view=spaces" method="post" id="adminForm" name="adminForm">
     <div class="row">

@@ -28,7 +28,7 @@ class ReservationsModelSpace extends JModelAdmin
     *
     * @since   1.0
     */
-    public function getTable($type = 'Spaces', $prefix = 'SpacesTable', $config = array())
+    public function getTable($type = 'Spaces', $prefix = 'ReservationsTable', $config = array())
     {
         return JTable::getInstance($type, $prefix, $config);
     }

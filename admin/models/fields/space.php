@@ -38,7 +38,7 @@ class JFormFieldSpace extends JFormFieldList
         // create new query object anc clear the query specification
         $query = $db->getQuery(true);
 
-        $query->select('id, space');
+        $query->select('*');
         $query->from('#__reservations_spaces');
         $db->setQuery((string) $query);
         $spaces = $db->loadObjectList();

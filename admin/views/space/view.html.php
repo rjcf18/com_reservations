@@ -68,18 +68,30 @@ class ReservationsViewSpace extends JViewLegacy
 
         // Hide Joomla Administrator Main menu
         $input->set('hidemainmenu', true);
-
-        $isNew = ($this->item->id == 0);
-
+	    
         $title = JText::_('COM_RESERVATIONS_VIEW_SPACE_EDIT');
 
+	    JToolbarHelper::title($title, 'space');
 
-        JToolbarHelper::title($title, 'space');
-        JToolbarHelper::save('space.save');
-        JToolbarHelper::cancel(
-            'space.cancel',
-            $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
-        );
+	    $toolbarButtons = [];
+	    $toolbarButtons[] = ['apply', 'space.apply'];
+	    $toolbarButtons[] = ['save', 'space.save'];
+	    $toolbarButtons[] = ['save2new', 'space.save2new'];
+
+	    JToolbarHelper::saveGroup(
+		    $toolbarButtons,
+		    'btn-success'
+	    );
+
+	    if (empty($this->item->id))
+	    {
+		    JToolbarHelper::cancel('space.cancel');
+	    }
+	    else
+	    {
+		    JToolbarHelper::cancel('space.cancel', 'JTOOLBAR_CLOSE');
+	    }
+
     }
 
 }

@@ -66,22 +66,33 @@ class ReservationsViewReservation extends JViewLegacy
     */
     protected function addToolBar()
     {
-        $input = JFactory::getApplication()->input;
+	    $input = JFactory::getApplication()->input;
 
-        // Hide Joomla Administrator Main menu
-        $input->set('hidemainmenu', true);
+	    // Hide Joomla Administrator Main menu
+	    $input->set('hidemainmenu', true);
 
-        $isNew = ($this->item->id == 0);
+	    $title = JText::_('COM_RESERVATIONS_VIEW_RESERVATIONS_EDIT');
 
-        $title = JText::_('COM_RESERVATIONS_VIEW_RESERVATIONS_EDIT');
+	    JToolbarHelper::title($title, 'reservation');
 
+	    $toolbarButtons = [];
+	    $toolbarButtons[] = ['apply', 'reservation.apply'];
+	    $toolbarButtons[] = ['save', 'reservation.save'];
+	    $toolbarButtons[] = ['save2new', 'reservation.save2new'];
 
-        JToolbarHelper::title($title, 'reservation');
-        JToolbarHelper::save('reservation.save');
-        JToolbarHelper::cancel(
-            'reservation.cancel',
-            $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
-        );
+	    JToolbarHelper::saveGroup(
+		    $toolbarButtons,
+		    'btn-success'
+	    );
+
+	    if (empty($this->item->id))
+	    {
+		    JToolbarHelper::cancel('space.cancel');
+	    }
+	    else
+	    {
+		    JToolbarHelper::cancel('space.cancel', 'JTOOLBAR_CLOSE');
+	    }
     }
 
 }

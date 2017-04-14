@@ -72,6 +72,9 @@ class ReservationsModelSpace extends JModelAdmin
     */
     protected function loadFormData()
     {
+	    // Get the application
+	    $app = JFactory::getApplication();
+
         // Check the session for previously entered form data.
         $data = JFactory::getApplication()->getUserState(
             'com_reservations.edit.space.data',
@@ -83,23 +86,31 @@ class ReservationsModelSpace extends JModelAdmin
             $data = $this->getItem();
         }
 
+	    $this->preprocessData('com_reservations.space', $data);
+
         return $data;
     }
 
-    /**
-    * Method to insert a space into the spaces table.
-    *
-    * @param string $space The space name to insert
-    *
-    * @since   1.0
-    */
-    public function insertSpace($space)
-    {
-        // Create and populate an object.
-        $data = new stdClass();
-        $data->space = $space;
+	/**
+	 * Method to get a single record.
+	 *
+	 * @param   integer  $pk  The id of the primary key.
+	 *
+	 * @return  mixed  Object on success, false on failure.
+	 *
+	 * @since   1.0
+	 */
+	public function getItem($pk = null)
+	{
+		if (!$item = parent::getItem($pk))
+		{
+			throw new Exception('Failed to load item');
+		}
 
-        // Insert the object into the spaces table.
-        $this->getDbo()->insertObject('#__reservations_spaces', $data);
-    }
+		if (!$item->id)
+		{
+		}
+
+		return $item;
+	}
 }

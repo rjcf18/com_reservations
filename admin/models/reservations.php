@@ -29,8 +29,9 @@ class ReservationsModelReservations extends JModelList
         {
             $config['filter_fields'] = array(
                 'id',
-                'user_id',
-                'space_id',
+                'name',
+                'space',
+                'place',
                 'start',
                 'end',
                 'published',
@@ -55,6 +56,7 @@ class ReservationsModelReservations extends JModelList
         // Create the base select statement.
         $query->select(
             'r.id as id, 
+            r.name as name,
             s.space as space, 
             s.place as place, 
             r.start as start, 
@@ -83,11 +85,11 @@ class ReservationsModelReservations extends JModelList
         }
         elseif ($published === '')
         {   //items with either state 'published' or 'unpublished'
-            $query->where('(published IN (0, 1))');
+            $query->where('published IN (0, 1)');
         }
 
         // Add the list ordering clauses and list direction to the query
-        $sort = $this->state->get('list.ordering', 'id');
+        $sort = $this->state->get('list.ordering', 'space');
         $order = $this->state->get('list.direction', 'asc');
 
         $query->order($db->escape($sort) . ' ' . $db->escape($order));

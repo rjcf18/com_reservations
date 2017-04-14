@@ -39,7 +39,8 @@ class JFormFieldReservation extends JFormFieldList
         $query = $db->getQuery(true);
 
         $query->select(
-            'r.id as id, 
+            'r.id as id,
+            r.name as name,
 			s.space as space, 
 			s.place as place, 
 			r.start as start, 

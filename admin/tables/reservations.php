@@ -14,7 +14,7 @@ defined('_JEXEC') or die();
  *
  * @since 1.0
  */
-class ReservationsTableSpaces extends JTable
+class ReservationsTableReservations extends JTable
 {
     /**
     * Constructor

@@ -9,13 +9,13 @@
 
 // No direct access
 defined('_JEXEC') or die();
-JHtml::_('behavior.formvalidation');
+JHtml::_('behavior.formvalidator');
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_reservations&layout=edit&id=' . (int) $this->item->id); ?>"
-      method="post" name="adminForm" id="adminForm">
+      method="post" name="adminForm" id="adminForm" class="form-validate">
 	<div class="form-horizontal">
 		<fieldset class="adminform">
-			<legend><?php echo JText::_('COM_RESERVATIONS_RESERVATIONS_EDIT'); ?></legend>
+			<legend><?php echo JText::_('COM_RESERVATIONS_EDIT_RESERVATIONS'); ?></legend>
 			<div class="row-fluid">
 				<div class="span6">
 					<?php foreach ($this->form->getFieldset() as $field): ?>

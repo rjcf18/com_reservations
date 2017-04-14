@@ -10,27 +10,34 @@
                 class="readonly"
                 readonly="true"
         />
-        <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_FLIGHTS_FIELD_TITLE_DESC"
+        <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_RESERVATIONS_FIELD_SPACE_DESC"
                type="text"
                class="inputbox"
 
         />
-        <field name="type" label="COM_RESERVATIONS_FIELD_TYPE_LABEL" description="COM_FLIGHTS_FIELD_TYPE_DESC"
+        <field name="type" type="list" label="COM_RESERVATIONS_FIELD_TYPE_LABEL"
+               description="COM_RESERVATIONS_FIELD_TYPE_DESC" class="custom-select-color-state"
+               default="COM_RESERVATIONS_SPACE_CLASSROOM"
+        >
+            <option value="Classroom">
+                COM_RESERVATIONS_SPACE_CLASSROOM</option>
+            <option value="Amphitheater">
+                COM_RESERVATIONS_SPACE_AMPHITHEATER</option>
+            <option value="Auditorium">
+                COM_RESERVATIONS_SPACE_AUDITORIUM</option>
+        </field>
+
+        <field name="place" label="COM_RESERVATIONS_FIELD_PLACE_LABEL" description="COM_RESERVATIONS_FIELD_PLACE_DESC"
                type="text"
                class="inputbox"
 
         />
-        <field name="place" label="COM_RESERVATIONS_FIELD_PLACE_LABEL" description="COM_FLIGHTS_FIELD_PLACE_DESC"
-               type="text"
-               class="inputbox"
-
-        />
-        <field name="area" label="COM_RESERVATIONS_FIELD_AREA_LABEL" description="COM_FLIGHTS_FIELD_AREA_DESC"
+        <field name="area" label="COM_RESERVATIONS_FIELD_AREA_LABEL" description="COM_RESERVATIONS_FIELD_AREA_DESC"
                type="text"
                filter="INTEGER"
                class="inputbox"
         />
-        <field name="capacity" label="COM_RESERVATIONS_FIELD_CAPACITY_LABEL" description="COM_FLIGHTS_FIELD_CAPACITY_DESC"
+        <field name="capacity" label="COM_RESERVATIONS_FIELD_CAPACITY_LABEL" description="COM_RESERVATIONS_FIELD_CAPACITY_DESC"
                type="text"
                filter="INTEGER"
                class="inputbox"

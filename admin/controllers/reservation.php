@@ -18,18 +18,24 @@ defined('_JEXEC') or die();
 */
 class ReservationsControllerReservation extends JControllerForm
 {
-    /**
-    * Method to add a new reservation
-    *
-    * @since   1.0
-    */
-    public function save()
-    {
-        $input = $this->input->getInput('jform');
+	/**
+	 * Method to run batch operations.
+	 *
+	 * @param   object  $model  The model.
+	 *
+	 * @return  boolean   True if successful, false otherwise and internal error is set.
+	 *
+	 * @since   1.0
+	 */
+	public function batch($model = null)
+	{
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
-        $model = $this->getModel();
-        $model->insertSpace($input['space']);
+		// Set the model
+		$model = $this->getModel('Reservation', 'ReservationsModel', array());
 
-        $this->setRedirect(JRoute::_('index.php?option=com_reservations&view=reservation', false));
-    }
+		// Preset the redirect
+		$this->setRedirect(JRoute::_('index.php?option=com_reservations&view=reservations' . $this->getRedirectToListAppend(), false));
+		return parent::batch($model);
+	}
 }

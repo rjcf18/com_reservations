@@ -52,7 +52,6 @@ $columns = 9;
                             <th style="width:10%" class="nowrap hidden-sm-down text-center">
 							    <?php echo JHtml::_('searchtools.sort',  'COM_RESERVATIONS_FIELD_TYPE_LABEL', 'type', $listDirn, $listOrder); ?>
                             </th>
-
                             <th style="width:10%" class="nowrap hidden-sm-down text-center">
 							    <?php echo JHtml::_('searchtools.sort',  'COM_RESERVATIONS_FIELD_PLACE_LABEL', 'place', $listDirn, $listOrder); ?>
                             </th>

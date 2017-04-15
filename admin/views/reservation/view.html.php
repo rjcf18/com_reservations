@@ -87,11 +87,11 @@ class ReservationsViewReservation extends JViewLegacy
 
 	    if (empty($this->item->id))
 	    {
-		    JToolbarHelper::cancel('space.cancel');
+		    JToolbarHelper::cancel('reservation.cancel');
 	    }
 	    else
 	    {
-		    JToolbarHelper::cancel('space.cancel', 'JTOOLBAR_CLOSE');
+		    JToolbarHelper::cancel('reservation.cancel', 'JTOOLBAR_CLOSE');
 	    }
     }
 

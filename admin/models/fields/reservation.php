@@ -38,17 +38,17 @@ class JFormFieldReservation extends JFormFieldList
         // create new query object anc clear the query specification
         $query = $db->getQuery(true);
 
-        $query->select(
-            'r.id as id,
+	    $query->select(
+		    'r.id as id,
             r.name as name,
-			s.space as space, 
-			s.place as place, 
-			r.start as start, 
-			r.end as end'
-        );
+            s.space as space, 
+            r.start as start, 
+            r.end as end'
+	    );
 
-        $query->from('#__reservations_reservations as r');
-        $query->leftJoin('#__reservations_spaces as s on r.space_id=s.id');
+	    $query->from('#__reservations_reservations as r');
+	    $query->leftJoin('#__reservations_spaces as s on r.space_id=s.id');
+
 
         $db->setQuery((string) $query);
         $reservations = $db->loadObjectList();

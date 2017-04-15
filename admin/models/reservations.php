@@ -30,8 +30,7 @@ class ReservationsModelReservations extends JModelList
             $config['filter_fields'] = array(
                 'id',
                 'name',
-                'space',
-                'place',
+                'space_id',
                 'start',
                 'end',
                 'published',
@@ -55,10 +54,9 @@ class ReservationsModelReservations extends JModelList
 
         // Create the base select statement.
         $query->select(
-            'r.id as id, 
+            'r.id as id,
             r.name as name,
             s.space as space, 
-            s.place as place, 
             r.start as start, 
             r.end as end'
         );

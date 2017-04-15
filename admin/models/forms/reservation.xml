@@ -11,27 +11,25 @@
                     class="readonly"
                     readonly="true"
             />
-            <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_RESERVATIONS_FIELD_SPACE_DESC"
-                   type="text"
-                   class="inputbox"
 
+            <field name="space_id" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_RESERVATIONS_FIELD_SPACE_LABEL"
+                   type="space"
+                   class="inputbox"
             />
+
             <field name="name" label="COM_RESERVATIONS_FIELD_NAME_LABEL" description="COM_RESERVATIONS_FIELD_NAME_DESC"
                    type="text"
                    class="inputbox"
-
-            />
-            <field name="place" label="COM_RESERVATIONS_FIELD_PLACE_LABEL" description="COM_RESERVATIONS_FIELD_PLACE_DESC"
-                   type="text"
-                   class="inputbox"
-
             />
 
             <field name="start" label="COM_RESERVATIONS_FIELD_START_LABEL" description="COM_RESERVATIONS_FIELD_START_DESC"
                    type="calendar"
+                   class="inputbox"
+
             />
             <field name="end" label="COM_RESERVATIONS_FIELD_END_LABEL" description="COM_RESERVATIONS_FIELD_END_DESC"
                    type="calendar"
+                   class="inputbox"
             />
             <field name="published" type="list" label="JSTATUS"
                    description="JFIELD_PUBLISHED_DESC" class="custom-select-color-state"

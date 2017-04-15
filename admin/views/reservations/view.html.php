@@ -87,11 +87,11 @@ class ReservationsViewReservations extends JViewLegacy
 
         JToolbarHelper::title($title, 'reservations');
 
-        JToolbarHelper::addNew('space.add');
+        JToolbarHelper::addNew('reservation.add');
 
-        JToolbarHelper::editList('space.edit');
+        JToolbarHelper::editList('reservation.edit');
 
-        JToolbarHelper::deleteList('', 'spaces.delete');
+        JToolbarHelper::deleteList('', 'reservations.delete');
     }
 
     /**

@@ -92,6 +92,10 @@ class ReservationsViewSpaces extends JViewLegacy
 
         JToolbarHelper::editList('space.edit');
 
+        //JToolbarHelper::publish();
+
+        //JToolbarHelper::unpublish();
+
         JToolbarHelper::deleteList('', 'spaces.delete');
 
     }

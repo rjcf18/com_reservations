@@ -91,9 +91,9 @@ class ReservationsViewReservations extends JViewLegacy
 
         JToolbarHelper::editList('reservation.edit');
 
-        //JToolbarHelper::publish();
+        JToolbarHelper::publish('reservations.publish');
 
-        //JToolbarHelper::unpublish();
+        JToolbarHelper::unpublish('reservations.unpublish');
 
         JToolbarHelper::deleteList('', 'reservations.delete');
     }

@@ -86,8 +86,6 @@ class ReservationsModelSpace extends JModelAdmin
             $data = $this->getItem();
         }
 
-	    $this->preprocessData('com_reservations.space', $data);
-
         return $data;
     }
 

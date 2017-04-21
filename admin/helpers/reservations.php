@@ -22,25 +22,28 @@ defined('_JEXEC') or die();
 abstract class ReservationsHelper extends JHelperContent
 {
     /**
-    * Configure the Linkbar.*
+    * Configure the Linkbar.
+    *
+    * @param string $submenu The name of the submenu in the side bar.
     *
     * @return Bool
+    *
+    * @since 1.0
     */
 
-	public static function addSubmenu($submenu)
-	{
-		JHtmlSidebar::addEntry(
-			JText::_('COM_RESERVATIONS_SUBMENU_SPACES'),
-			'index.php?option=com_reservations&view=spaces',
-			$submenu == 'spaces'
-		);
+    public static function addSubmenu($submenu)
+    {
+        JHtmlSidebar::addEntry(
+            JText::_('COM_RESERVATIONS_SUBMENU_SPACES'),
+            'index.php?option=com_reservations&view=spaces',
+            $submenu == 'spaces'
+        );
 
-		JHtmlSidebar::addEntry(
-			JText::_('COM_RESERVATIONS_SUBMENU_RESERVATIONS'),
-			'index.php?option=com_reservations&view=reservations',
-			$submenu == 'reservations'
-		);
-	}
-
+        JHtmlSidebar::addEntry(
+            JText::_('COM_RESERVATIONS_SUBMENU_RESERVATIONS'),
+            'index.php?option=com_reservations&view=reservations',
+            $submenu == 'reservations'
+        );
+    }
 
 }

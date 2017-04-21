@@ -13,7 +13,7 @@
         <field name="space" label="COM_RESERVATIONS_FIELD_SPACE_LABEL" description="COM_RESERVATIONS_FIELD_SPACE_DESC"
                type="text"
                class="inputbox"
-
+               required="true"
         />
         <field name="type" type="list" label="COM_RESERVATIONS_FIELD_TYPE_LABEL"
                description="COM_RESERVATIONS_FIELD_TYPE_DESC" class="custom-select-color-state"
@@ -30,17 +30,19 @@
         <field name="place" label="COM_RESERVATIONS_FIELD_PLACE_LABEL" description="COM_RESERVATIONS_FIELD_PLACE_DESC"
                type="text"
                class="inputbox"
-
+               required="true"
         />
         <field name="area" label="COM_RESERVATIONS_FIELD_AREA_LABEL" description="COM_RESERVATIONS_FIELD_AREA_DESC"
                type="text"
                filter="INTEGER"
                class="inputbox"
+               required="true"
         />
         <field name="capacity" label="COM_RESERVATIONS_FIELD_CAPACITY_LABEL" description="COM_RESERVATIONS_FIELD_CAPACITY_DESC"
                type="text"
                filter="INTEGER"
                class="inputbox"
+               required="true"
         />
         <field name="published" type="list" label="JSTATUS"
                description="JFIELD_PUBLISHED_DESC" class="custom-select-color-state"

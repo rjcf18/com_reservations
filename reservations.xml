@@ -32,6 +32,12 @@
         </schemas>
     </update>
 
+    <files folder="site">
+        <filename>reservations.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+    </files>
 
     <administration>
         <menu link="index.php?option=com_reservations">COM_RESERVATIONS_MENU</menu>
@@ -45,23 +51,24 @@
             <filename>controller.php</filename>
             <filename>reservations.php</filename>
 
+            <!-- SQL files section -->
+            <folder>sql</folder>
+
+            <!-- tables files section -->
+            <folder>tables</folder>
+
+            <!-- models files section -->
+            <folder>models</folder>
+
             <!-- controllers files section -->
             <folder>controllers</folder>
 
             <!-- helpers files section -->
             <folder>helpers</folder>
 
-            <!-- models files section -->
-            <folder>models</folder>
-
             <!-- views files section -->
             <folder>views</folder>
 
-            <!-- tables files section -->
-            <folder>tables</folder>
-
-            <!-- SQL files section -->
-            <folder>sql</folder>
 
         </files>
         <languages folder="admin/language">

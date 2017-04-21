@@ -1,2 +1,2 @@
-INSERT INTO `#__reservations_reservations` (`user_id`, `space_id`, `start`, `end`) VALUES
-('96', '1', '2008-10-03 22:30:00', '2008-10-03 23:55:00');
+INSERT INTO `#__reservations_reservations` (`name`, `space_id`, `start`, `end`) VALUES
+('Person 1', '1', '2017-05-03 22:30:00', '2017-05-03 23:55:00');

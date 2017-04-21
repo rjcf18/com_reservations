@@ -26,7 +26,7 @@ class ReservationsModelReservation extends JModelAdmin
     *
     * @return  JTable  A JTable object if found, false boolean if not found
     *
-    * @since   1.6
+    * @since   1.0
     */
     public function getTable($type = 'Reservations', $prefix = 'ReservationsTable', $config = array())
     {
@@ -82,8 +82,6 @@ class ReservationsModelReservation extends JModelAdmin
         {
             $data = $this->getItem();
         }
-
-	    $this->preprocessData('com_reservations.reservation', $data);
 
         return $data;
     }
